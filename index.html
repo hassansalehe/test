@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body style="font-size:14px;">
 L: <input name="L" label="L" type="text" id="L" /> <br/>
 D: <input name="D" label="D" type="text" id="D" /> <br />
-<input value="submit" type="submit" id="S" onClick="calculatePlot()" />
+<input style="font-size:14px;" value="submit" type="submit" id="S" onClick="calculatePlot()" />
 
 <table id="results">
   <tr> <td> </td> <td> </td></tr>
@@ -14,27 +14,27 @@ function calculatePlot(){
   // get length and diameter
   var l = document.getElementById("L").value;
   var d = document.getElementById("D").value;
-  
+
   // get table object
   var table = document.getElementById("results");
-  
+
   // clear contents
   table.innerHTML = "";
   table.width= '100%';
-  
+
   // Create table header
   var header = table.insertRow(0);
   header.insertCell(0).innerHTML = "h";
   header.insertCell(1).innerHTML = "V";
-  
+
   // loop throught steps of the diameter
   for(h = 0; h <= d; h++) {
      // create new row
      var row = table.insertRow(h+1);
-     
+
      var hCell = row.insertCell(0);
      var volCell = row.insertCell(1);
-     
+
      // Add values to cells
      hCell.innerHTML = h;
      volCell.innerHTML = calculateVolume(l, d, h);
