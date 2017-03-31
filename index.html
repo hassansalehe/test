@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body style="font-size:1em;">
-L: <input name="L" label="L" type="text" id="L" /> <br/>
-D: <input name="D" label="D" type="text" id="D" /> <br />
+L(mm): <input name="L" label="L" type="text" id="L" /> <br/>
+D(mm): <input name="D" label="D" type="text" id="D" /> <br />
 <input style="font-size:14px;" value="submit" type="submit" id="S" onClick="calculatePlot()" />
 
 <table id="results">
@@ -24,8 +24,8 @@ function calculatePlot(){
 
   // Create table header
   var header = table.insertRow(0);
-  header.insertCell(0).innerHTML = "h";
-  header.insertCell(1).innerHTML = "V";
+  header.insertCell(0).innerHTML = "h (mm)";
+  header.insertCell(1).innerHTML = "V (litres)";
 
   // loop throught steps of the diameter
   for(h = 0; h <= d; h++) {
@@ -44,6 +44,7 @@ function calculatePlot(){
 function calculateVolume(L, D, H) {
   R = 0.5 * D;
   volume = L * ( (R * R * Math.acos((R - H) / R))  -  ( (R - H) * Math.sqrt((2*R*h) - (h*h)) ) );
+  volume = volume * 0.000001;
   return volume.toFixed(2);
 }
 </script>
