@@ -46,7 +46,7 @@ function calculateVolume(L, D, H) {
   volume = L * ( (R * R * Math.acos((R - H) / R))  -  ( (R - H) * Math.sqrt((2*R*h) - (h*h)) ) );
   volume = volume * 0.000001;
   if(volume < 0.005)
-    return volume;
+    return parseFloat(volume.toExponential(Math.max(1,2+Math.log10(Math.abs(volume)))));
   else 
     return volume.toFixed(2);
 }
