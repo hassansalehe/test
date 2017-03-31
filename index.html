@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Math.sqrt()</h1>
+
+<p>Math.sqrt(x) returns the square root of x:</p>
+
+<p id="demo"></p>
+L: <input name="L" label="L" type="text" id="L" /> <br/>
+D: <input name="D" label="D" type="text" id="D" /> <br />
+<input value="submit" type="submit" id="S" onClick="test()" />
+
+<table id="results">
+  <tr> <td> </td> <td> </td></tr>
+</table>
+
+<script>
+document.getElementById("demo").innerHTML = Math.sqrt(64);
+
+function test(){
+  // get length and diameter
+  var l = document.getElementById("L").value;
+  var d = document.getElementById("D").value;
+  
+  // get table object
+  var table = document.getElementById("results");
+  
+  // clear contents
+  table.innerHTML = "";
+  table.width= '100%';
+  
+  // Create table header
+  var header = table.insertRow(0);
+  header.insertCell(0).innerHTML = "h";
+  header.insertCell(1).innerHTML = "V";
+  
+  // loop throught steps of the diameter
+  for(h = 0; h <= d; h++) {
+     // create new row
+     var row = table.insertRow(h+1);
+     
+     var hCell = row.insertCell(0);
+     var volCell = row.insertCell(1);
+     
+     // Add values to cells
+     hCell.innerHTML = h;
+     volCell.innerHTML = calculateVolume(l, d, h);
+  }
+  alert(d);
+}
+
+function calculateVolume(L, D, H) {
+  R = 0.5 * D;
+  volume = L * ( (R * R * Math.acos((R - H) / R))  -  ( (R - H) * Math.sqrt((2*R*h) - (h*h)) ) );
+  return volume.toFixed(2);
+}
+</script>
+
+</body>
+</html>
