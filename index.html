@@ -20,12 +20,12 @@ function calculatePlot(){
 
   // clear contents
   table.innerHTML = "";
-  table.width= '100%';
+  //table.width= '100%';
 
   // Create table header
   var header = table.insertRow(0);
-  header.insertCell(0).innerHTML = "h (mm)";
-  header.insertCell(1).innerHTML = "V (litres)";
+  header.insertCell(0).innerHTML = "height (mm)";
+  header.insertCell(1).innerHTML = "Volume (litres)";
 
   // loop throught steps of the diameter
   for(h = 0; h <= d; h++) {
