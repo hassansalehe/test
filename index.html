@@ -3,16 +3,14 @@
 <body>
 L: <input name="L" label="L" type="text" id="L" /> <br/>
 D: <input name="D" label="D" type="text" id="D" /> <br />
-<input value="submit" type="submit" id="S" onClick="test()" />
+<input value="submit" type="submit" id="S" onClick="calculatePlot()" />
 
 <table id="results">
   <tr> <td> </td> <td> </td></tr>
 </table>
 
 <script>
-document.getElementById("demo").innerHTML = Math.sqrt(64);
-
-function test(){
+function calculatePlot(){
   // get length and diameter
   var l = document.getElementById("L").value;
   var d = document.getElementById("D").value;
