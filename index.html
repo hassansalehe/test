@@ -111,15 +111,15 @@ function calculatePlot(){
   header.insertCell(0).innerHTML = "height (mm)";
   header.insertCell(1).innerHTML = "Volume (litres)";
 
-  if(orientation === "Horizontal") {
+  if(orientation === "Vertical") {
     var R = 0.5 * d;
     var k = Math.PI * R * R;
-    processHorizontal(Vo, l, k, table);
-    message.innerHTML = "Horizontal tank, k = " + toRepresentable(k) + " mm2";
+    processVertical(Vo, l, k, table);
+    message.innerHTML = "Vertical tank, k = " + toRepresentable(k) + " mm2";
   }
-  else if(orientation == "Vertical") {
-    processVertical(Vo, l, d, table);
-    message.innerHTML =  "Vertical tank";
+  else if(orientation == "Horizontal") {
+    processHorizontal(Vo, l, d, table);
+    message.innerHTML =  "Horizontal tank";
   }
   else {
      message.innerHTML = "Please select orientation";
@@ -127,7 +127,7 @@ function calculatePlot(){
   }
 }
 
-function processHorizontal(Vo, l, k, table) {
+function processVertical(Vo, l, k, table) {
 
   for(len = 0; len <= l; len++) {
 
@@ -148,7 +148,7 @@ function processHorizontal(Vo, l, k, table) {
   }
 }
 
-function processVertical(Vo, l, d, table) {
+function processHorizontal(Vo, l, d, table) {
 
   // loop throught steps of the diameter
   for(h = 0; h <= d; h++) {
